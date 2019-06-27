@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>django</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static '/style.css' %}"/>
+    <link rel="stylesheet" href="{% static '/app.css' %}"/>
+    <link rel="stylesheet" href="{% static '/bootstrap.min.css' %}"/>
+</head>
+<body>
+    <form action="/emp" method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <div class="form-group">
+                <label for="my-input">detail</label>
+            </div>    
+            <div class="form-group">
+                <label for="my-input">employe eid : </label>
+                {{ employee.eid }}
+            </div>
+            <div class="form-group">
+                <label for="my-input">employe ename : </label>
+                {{ employee.ename }}
+            </div>
+            <div class="form-group">
+                <label for="my-input">employe eemail : </label>
+                {{ employee.eemail }}
+            </div>
+            <div class="form-group">
+                <label for="my-input">employe econtact : </label>
+                {{ employee.econtact }}
+            </div>
+            <center><a href="/index">home</a></center>
+        </div>
+    </form>
+</body>
+</html>
