@@ -1,43 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>django</title>
-    {% load staticfiles %}
-    <link rel="stylesheet" href="{% static '/style.css' %}"/>
-    <link rel="stylesheet" href="{% static '/app.css' %}"/>
-    <link rel="stylesheet" href="{% static '/bootstrap.min.css' %}"/>
-</head>
-<body>
-    <table class="table table-light">
-        <thead class="thead-light">
-            <tr>
-                <th>Employee ID</th>
-                <th>Employee Name</th>
-                <th>Employee Email</th>
-                <th>Employee Contact</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for employee in employees %}
-            <tr>
-                <td>{{ employee.eid }}</td>
-                <td>{{ employee.ename }}</td>
-                <td>{{ employee.eemail }}</td>
-                <td>{{ employee.econtact }}</td>
-                <td>
-                    <a href="/show/{{ employee.id }}">show</a>
-                    <a href="/edit/{{ employee.id }}">edit</a>
-                    <a href="/delete/{{ employee.id }}">delete</a>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <br><br>
-    <center><a href="/emp">add new record</a></center>
-</body>
-</html>
+{% extends 'layout/base.html'%}
+
+{% block content%}
+<table class="table table-light">
+    <thead class="thead-light">
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Employee Email</th>
+            <th>Employee Contact</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee.eid }}</td>
+            <td>{{ employee.ename }}</td>
+            <td>{{ employee.eemail }}</td>
+            <td>{{ employee.econtact }}</td>
+            <td>
+                <a href="/show/{{ employee.id }}">show</a>
+                <a href="/edit/{{ employee.id }}">edit</a>
+                <a href="/delete/{{ employee.id }}">delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block script %}
+<script>
+console.log("ajjaj")
+</script>
+{% endblock %}
